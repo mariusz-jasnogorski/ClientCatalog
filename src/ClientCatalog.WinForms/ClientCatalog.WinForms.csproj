@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClientCatalog.Core\ClientCatalog.Core.csproj" />
+    <ProjectReference Include="..\ClientCatalog.Data\ClientCatalog.Data.csproj" />
+  </ItemGroup>
+
+
+<ItemGroup>
+  <Compile Update="MainForm.cs">
+    <SubType>Form</SubType>
+  </Compile>
+  <Compile Update="MainForm.Designer.cs">
+    <DependentUpon>MainForm.cs</DependentUpon>
+  </Compile>
+  <EmbeddedResource Update="MainForm.resx">
+    <DependentUpon>MainForm.cs</DependentUpon>
+  </EmbeddedResource>
+
+  <Compile Update="CustomerDetailForm.cs">
+    <SubType>Form</SubType>
+  </Compile>
+  <Compile Update="CustomerDetailForm.Designer.cs">
+    <DependentUpon>CustomerDetailForm.cs</DependentUpon>
+  </Compile>
+  <EmbeddedResource Update="CustomerDetailForm.resx">
+    <DependentUpon>CustomerDetailForm.cs</DependentUpon>
+  </EmbeddedResource>
+</ItemGroup>
+
+
+<ItemGroup>
+  <None Update="appsettings.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
+
+</Project>
